@@ -1,1 +1,1 @@
-# raghu
+A simple Student Management System that allows you to perform CRUD operations (Create, Read, Update, Delete) on student records. This project is ideal for learning full-stack development with a clean and structured approach.
