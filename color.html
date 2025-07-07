@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Color Picker Tool</title>
+  <style>
+    body {
+      background-color: #f3f3f3;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 50px;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 300px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #6703c4;
+    }
+
+    .color-input {
+      margin: 20px 0;
+      width: 100px;
+      height: 50px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .hex-code {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    .copy-btn {
+      background-color: #6703c4;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .copy-btn:hover {
+      background-color: #5502a5;
+    }
+
+    .copied {
+      color: green;
+      margin-top: 10px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Color Picker Tool</h1>
+  <input type="color" id="colorPicker" class="color-input">
+  <div class="hex-code" id="hexValue">#000000</div>
+  <button class="copy-btn" onclick="copyHex()">Copy HEX</button>
+  <div class="copied" id="copiedMsg"></div>
+</div>
+
+<script>
+  const colorPicker = document.getElementById("colorPicker");
+  const hexValue = document.getElementById("hexValue");
+  const copiedMsg = document.getElementById("copiedMsg");
+
+  colorPicker.addEventListener("input", function () {
+    hexValue.textContent = colorPicker.value.toUpperCase();
+    copiedMsg.textContent = "";
+  });
+
+  function copyHex() {
+    navigator.clipboard.writeText(hexValue.textContent)
+      .then(() => {
+        copiedMsg.textContent = "HEX code copied!";
+        setTimeout(() => {
+          copiedMsg.textContent = "";
+        }, 2000);
+      });
+  }
+</script>
+
+</body>
+</html>
