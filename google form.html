@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>This is my web page</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f0ebf8;
+      margin: 0;
+      padding: 0;
+    }
+
+    .form {
+      width: 600px;
+      margin: 40px auto;
+      background-color: #ffffff;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .title-div {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+    }
+
+    .title-div h1 {
+      color: #4a148c;
+      margin-bottom: 10px;
+    }
+
+    .required {
+      color: red;
+      font-size: 14px;
+    }
+
+    .name {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .input-div {
+      margin-bottom: 20px;
+    }
+
+    .input-div input {
+      width: 100%;
+      padding: 10px;
+      font-size: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .btn {
+      background-color: #4a148c;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #6a1b9a;
+    }
+
+    .last-div {
+      margin-top: 40px;
+      font-size: 12px;
+      color: #777;
+      text-align: center;
+    }
+
+    .last-div h2 {
+      color: #4a148c;
+      font-size: 18px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form">
+    <div class="title-div">
+      <h1>Attendance Sheet</h1>
+      <p>This is a Google Form. This form is created with HTML and CSS.</p>
+      <p class="required">*Required</p>
+    </div>
+
+    <div class="name-div">
+      <div class="name">What is your name?<span class="required">*</span></div>
+      <div class="input-div"><input type="text" name="name" placeholder="Your answer" required></div>
+    </div>
+
+    <div class="college-div">
+      <div class="name">Enter your college name.</div>
+      <div class="input-div"><input type="text" name="college" placeholder="Your answer"></div>
+    </div>
+
+    <div class="gmail-div">
+      <div class="name">Enter your email.<span class="required">*</span></div>
+      <div class="input-div"><input type="email" name="email" placeholder="Your email" required></div>
+    </div>
+
+    <div class="mobile-div">
+      <div class="name">Enter your mobile no.</div>
+      <div class="input-div"><input type="tel" name="mobile" placeholder="Your answer"></div>
+    </div>
+
+    <div>
+      <input class="btn" type="submit" value="Submit">
+    </div>
+
+    <div class="last-div">
+      <p class="never">Never submit passwords through Google Forms.</p>
+      <p class="term">This content is neither created nor endorsed by Google. Report Abuse - Terms of Service - Privacy Policy</p>
+      <h2>Google Forms</h2>
+    </div>
+  </div>
+
+  <script>
+    document.querySelector(".btn").addEventListener("click", function (event) {
+      event.preventDefault();
+
+      const inputs = document.querySelectorAll("input[type='text'], input[type='email']");
+      const name = inputs[0].value.trim();
+      const email = inputs[2].value.trim();
+
+      if (name === "" || email === "") {
+        alert("Please fill out all required fields (Name and Email).");
+      } else {
+        alert("Form submitted successfully!\nName: " + name + "\nEmail: " + email);
+        document.querySelectorAll("input").forEach(input => input.value = "");
+      }
+    });
+  </script>
+
+</body>
+</html>
